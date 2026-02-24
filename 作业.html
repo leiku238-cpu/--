@@ -12,7 +12,7 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <span>♫</span>
+      <span></span>
       <span>网易云音乐</span>
     </div>
     <div class="search-box">
@@ -63,7 +63,7 @@
             </div>
             <div class="lyrics-container" id="lyricsContainer">
               <div class="lyrics-content" id="lyricsContent">
-                <!-- 歌词将由JS动态生成 -->
+
               </div>
             </div>
           </div>
@@ -96,6 +96,10 @@
       </div>
     </div>
     <aside class="sidebar">
+      <div class="nav-item" id="goToSquare">
+        <span>🎵</span>
+        <span>歌单广场</span>
+      </div>
       <div class="nav-group">
         <div class="nav-item active">
           <span>🧭</span>
@@ -162,6 +166,9 @@
             <div class="indicator" data-index="1"></div>
             <div class="indicator" data-index="2"></div>
           </div>
+          <!-- 如果需要左右切换按钮，可以添加 -->
+          <button class="carousel-btn prev" style="display: none;">〈</button>
+          <button class="carousel-btn next" style="display: none;">〉</button>
         </div>
 
         <!-- 推荐歌单 -->
@@ -170,7 +177,7 @@
           <a href="#" class="more-link">更多 ></a>
         </div>
         <div class="playlist-grid">
-          <!-- 歌单1（可点击） -->
+          <!-- 歌单1 -->
           <div class="playlist-card" id="playlist1">
             <div class="playlist-cover">
               <img src="./图片/t012a906a6ba6a1db1b.jpg" alt="封面">
@@ -228,15 +235,28 @@
           <div class="nav-title">猜你喜欢</div>
           <div class="tag-list">
             <div class="tag-item">精卫</div>
-            <div class="tag-item">红色高跟鞋</div>
-            <div class="tag-item">左转灯</div>
+            <div class="tag-item">裸体舞曲</div>
+            <div class="tag-item">月光</div>
           </div>
         </div>
       </div>
+      <div class="playlist-square-page" id="playlistSquarePage" style="display: none;">
+        <div class="square-header">
+          <h2>歌单广场</h2>
 
-      <!-- 歌单详情页 -->
+          <div class="filter-tabs" id="filterTabs">
+
+          </div>
+        </div>
+
+        <div class="playlist-grid" id="squarePlaylistGrid">
+
+        </div>
+
+      </div>
+
       <div class="playlist-detail-page" id="playlistDetailPage" style="display: none;">
-        <!-- 返回按钮 -->
+
         <button class="back-btn" id="backBtn"
           style="position: absolute; top: 20px; left: 20px; background: none; border: none; cursor: pointer; font-size: 16px; color: #333;">←
           返回</button>
@@ -300,7 +320,7 @@
             <div class="col-duration">时长</div>
           </div>
           <div class="list-body" id="songsListBody">
-            <!-- 歌曲列表 -->
+
           </div>
         </div>
       </div>
@@ -310,10 +330,13 @@
   <!-- 播放栏 -->
   <footer class="player-bar">
     <div class="song-info">
-      <div class="song-cover" style="width:40px;height:40px;background:#f1f1f1;"></div>
+      <div class="song-cover" id="bottomSongCover"
+        style="width:40px;height:40px;background:#f1f1f1; border-radius: 4px; overflow: hidden;">
+        <img id="bottomSongCoverImg" src="" style="width:100%;height:100%;object-fit:cover;display:none;">
+      </div>
       <div class="song-detail">
-        <div class="song-name">左转灯 (1000 Times +1)</div>
-        <div class="singer-name">Joji</div>
+        <div class="song-name" id="bottomSongName">11037 (1000 Times +1)</div>
+        <div class="singer-name" id="bottomSingerName">Joji</div>
       </div>
       <div class="like-btn">♥</div>
     </div>
@@ -321,11 +344,11 @@
     <div class="player-controls">
       <div class="control-btns">
         <span>🔀</span>
-        <span>◀◀</span>
+        <span id="bottomPrevBtn">◀◀</span>
         <div class="play-btn-main" id="playBtn">
           <span>▶</span>
         </div>
-        <span>▶▶</span>
+        <span id="bottomNextBtn">▶▶</span>
         <span>🔁</span>
       </div>
       <div class="progress-container">
