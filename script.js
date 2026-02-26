@@ -1053,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ========== 其他交互 ==========
   document.addEventListener('click', function (e) {
     const isClickOnSearch = searchInput.contains(e.target) || searchPage.contains(e.target);
-    const isClickOnPlaylist = playlistDetailPage.contains(e.target) || document.querySelectorAll('.playlist-card').some(card => card.contains(e.target));
+    const isClickOnPlaylist = playlistDetailPage.contains(e.target) || document.querySelectorAll('.playlist-card');
     const isClickOnPlayer = playerDetailPage.contains(e.target);
     const isClickOnSidebar = likeMusicItem.contains(e.target) || backBtn.contains(e.target) || playerBackBtn.contains(e.target);
 
